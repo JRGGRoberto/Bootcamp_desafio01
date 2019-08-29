@@ -26,6 +26,6 @@ https://github.com/Rocketseat/bootcamp-gostack-desafio-01
 - Crie um middleware global chamado em todas requisições que imprime (`console.log`) uma contagem de quantas requisições foram feitas na aplicação até então;
 
 
-JRGG Roberto ⛵️
-https://pt.linkedin.com/in/jrobertogoes 
-📧 jrggroberto@gmail.com
+### JRGG Roberto :sailboat:<br>
+https://pt.linkedin.com/in/jrobertogoes <br>
+:e-mail: jrggroberto@gmail.com
