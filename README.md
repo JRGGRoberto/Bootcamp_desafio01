@@ -32,3 +32,5 @@ https://github.com/Rocketseat/bootcamp-gostack-desafio-01
 ### JRGG Roberto :sailboat:<br>
 https://pt.linkedin.com/in/jrobertogoes <br>
 :e-mail: jrggroberto@gmail.com
+![Alt twitter](https://img.shields.io/twitter/follow/jrggroberto.svg)
+
