@@ -27,6 +27,9 @@ server.post('/projects', checkDataJsonExists, (req, res) => {
     return res.json(projects);
 });
 
+server.get('/projects', (req, res) =>{
+  return res.json(projects);
+});
 /*
 server.post('/projects/:id/task', (req, res) => {
   const {id, tasks} = req.body;
