@@ -30,6 +30,14 @@ server.post('/projects', checkDataJsonExists, (req, res) => {
 server.get('/projects', (req, res) =>{
   return res.json(projects);
 });
+
+server.delete('/projects:id', (req, res) => {
+   const { id } = req.params;
+   projects.splice(id, 1);
+
+   return res.send();
+});
+
 /*
 server.post('/projects/:id/task', (req, res) => {
   const {id, tasks} = req.body;
