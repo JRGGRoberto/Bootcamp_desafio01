@@ -1,6 +1,9 @@
 # Desafio 01. Conceitos do NodeJS
 ## Resposta do Bootcamp GoStack 🚀👨🏻‍🚀 
 
+[![code style: prettier](https://img.shields.io/twitter/follow/jrggroberto.svg?label=follow+jrggroberto&style=flat-square)](https://twitter.com/jrggroberto)
+
+
 # Bootcamp_desafio01
 Rocketseat Bootcamp Ago 2019
 https://github.com/Rocketseat/bootcamp-gostack-desafio-01
