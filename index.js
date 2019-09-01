@@ -2,7 +2,24 @@ const express = require('express');
 const server = express();
 server.use(express.json());
 
-const projects = [];
+const projects = [
+  {
+    "id": "c",
+    "title": "Bravo",
+    "tasks": []
+  },
+  {
+    "id": "a",
+    "title": "Bravo",
+    "tasks": []
+  },
+  {
+    "id": "z",
+    "title": "Bravo",
+    "tasks": []
+  }
+
+];
 
 function checkDataJsonExists (req, res, next) {
 
@@ -44,10 +61,8 @@ server.get('/projects/:id', checkIdInArray, (req, res) =>{
   return res.json(projects[res.index]);
 });
 
-server.delete('/projects:id', checkIdInArray, (req, res) => {
-   const { id } = req.index;
-   projects.splice(id, 1);
-
+server.delete('/projects/:id', checkIdInArray, (req, res) => {
+   projects.splice(res.index, 1);
    return res.send();
 });
 
