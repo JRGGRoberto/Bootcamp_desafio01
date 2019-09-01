@@ -4,7 +4,7 @@ server.use(express.json());
 
 const projects = [];
 
-function checkDataJsonExists(req, res, next){
+function checkDataJsonExists (req, res, next) {
 
   if(!req.body.id) {
     return res.status(400).json({error: 'Id is required'})
@@ -12,6 +12,15 @@ function checkDataJsonExists(req, res, next){
   if(!req.body.title) {
     return res.status(400).json({error: 'Title is required'});
   }
+  return next();
+}
+
+function checkIdInArray (req, res, next){
+  const index  = projects.findIndex( (projects) => projects.id === req.params.id);
+  if(index == -1){
+    return res.status(404).json({error: 'Id not found'});
+  }
+  res.index = index;
   return next();
 }
 
@@ -31,8 +40,12 @@ server.get('/projects', (req, res) =>{
   return res.json(projects);
 });
 
-server.delete('/projects:id', (req, res) => {
-   const { id } = req.params;
+server.get('/projects/:id', checkIdInArray, (req, res) =>{
+  return res.json(projects[res.index]);
+});
+
+server.delete('/projects:id', checkIdInArray, (req, res) => {
+   const { id } = req.index;
    projects.splice(id, 1);
 
    return res.send();
