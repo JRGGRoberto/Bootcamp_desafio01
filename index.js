@@ -77,14 +77,14 @@ novo projeto dentro de um array no seguinte formato:
 Certifique-se de enviar tanto o ID quanto o título do projeto no formato 
 string com àspas duplas.*/
 server.post('/projects', checkDataJsonExists, (req, res) => {
-    const { id, title } = req.body;
-    const project = {
+  const { id, title } = req.body;
+  const project = {
       id: id,
       title: title,
       tasks: []
     };
-    projects.push(project);
-    return res.json(projects);
+  projects.push(project);
+  return res.json(projects);
 });
 
 //GET /projects: Rota que lista todos projetos e suas tarefas;
@@ -103,14 +103,19 @@ server.delete('/projects/:id', checkIdInArray, (req, res) => {
 });
 
 //PUT /projects/:id: A rota deve alterar apenas o título do projeto com o id presente nos parâmetros da rota;
-server.put('/projects/:id', checkIdInArray, (req, res) => {
-  const index = res.index;
+server.put('/projects/:id', checkIdInArray, checkDataJsonExists, (req, res) => {
+  /*const index = res.index;
   const  title = req.body.title;
-  projects[index].title = title;
+  projects[index].title = title; */
+  projects[res.index].title = req.body.title;
   return res.json(projects);
-
 });
 
+server.post('/project/:id/tasks', checkIdInArray, checkDataJsonExists, (req, res) => {
+  const index = res.index;
+  projects[index].tasks.push(req.body.title);
+  return res.json(projects);
+});
 
 
 server.listen(3000);
