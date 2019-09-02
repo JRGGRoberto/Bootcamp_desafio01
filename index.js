@@ -111,7 +111,7 @@ server.put('/projects/:id', checkIdInArray, checkDataJsonExists, (req, res) => {
   return res.json(projects);
 });
 
-server.post('/project/:id/tasks', checkIdInArray, checkDataJsonExists, (req, res) => {
+server.post('/projects/:id/tasks', checkIdInArray, (req, res) => {
   const index = res.index;
   projects[index].tasks.push(req.body.title);
   return res.json(projects);
