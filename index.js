@@ -2,24 +2,39 @@ const express = require('express');
 const server = express();
 server.use(express.json());
 
+let counter = 0;
+
 const projects = [
   {
-    "id": "c",
-    "title": "Bravo",
+    "id": "SDU",
+    "title": "Santos Dumont",
     "tasks": []
   },
   {
-    "id": "a",
-    "title": "Bravo",
+    "id": "GIG",
+    "title": "Galegão",
     "tasks": []
   },
   {
-    "id": "z",
-    "title": "Bravo",
+    "id": "CGH",
+    "title": "Congonhas",
+    "tasks": []
+  },
+  {
+    "id": "LIS",
+    "title": "Portela",
     "tasks": []
   }
 
 ];
+
+server.use((req, res,next)=>{
+  console.time('Time');
+  counter++;
+  console.log(`Request number: ${counter} | method url:${req.method} ${req.url} | ${res.finished}`);
+  next();
+  console.timeEnd('Time')
+});
 
 function checkDataJsonExists (req, res, next) {
 
