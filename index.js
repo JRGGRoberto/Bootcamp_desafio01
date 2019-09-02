@@ -111,9 +111,6 @@ server.put('/projects/:id', checkIdInArray, (req, res) => {
 
 });
 
-server.post('/projects/:id/task', (req, res) => {
-  const {id, tasks} = req.body;
 
-});
 
 server.listen(3000);
